@@ -138,7 +138,12 @@ class TestObservation:
         observation = to_observation(observation_row())
         assert observation["status"] == "final"
         assert observation["code"]["coding"][0]["system"] == LOINC
-        assert observation["valueQuantity"] == {"value": 6.1, "unit": "%", "system": UCUM, "code": "%"}
+        assert observation["valueQuantity"] == {
+            "value": 6.1,
+            "unit": "%",
+            "system": UCUM,
+            "code": "%",
+        }
         assert observation["effectiveDateTime"] == "2024-11-03T06:36:38Z"
 
     def test_meets_mii_lab_identifier_and_category(self) -> None:
@@ -165,9 +170,14 @@ class TestObservation:
 
     def test_restores_commas_in_display(self) -> None:
         observation = to_observation(
-            observation_row(CODE="20565-8", DESCRIPTION="Carbon dioxide  total [Moles/volume] in Blood")
+            observation_row(
+                CODE="20565-8", DESCRIPTION="Carbon dioxide  total [Moles/volume] in Blood"
+            )
         )
-        assert observation["code"]["coding"][0]["display"] == "Carbon dioxide, total [Moles/volume] in Blood"
+        assert (
+            observation["code"]["coding"][0]["display"]
+            == "Carbon dioxide, total [Moles/volume] in Blood"
+        )
 
     def test_skips_non_laboratory_category(self) -> None:
         with pytest.raises(SkipRow, match="not a laboratory observation"):
@@ -200,7 +210,10 @@ class TestMedicationRequest:
         assert request["reasonCode"][0]["coding"][0]["code"] == "59621000"
 
     def test_stopped_medication_is_completed(self) -> None:
-        assert to_medication_request(medication_row(STOP="2019-01-01T00:00:00Z"))["status"] == "completed"
+        assert (
+            to_medication_request(medication_row(STOP="2019-01-01T00:00:00Z"))["status"]
+            == "completed"
+        )
 
     def test_skips_missing_patient(self) -> None:
         with pytest.raises(SkipRow, match="missing PATIENT"):

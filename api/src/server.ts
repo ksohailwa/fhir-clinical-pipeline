@@ -28,6 +28,6 @@ function createSummaries(): SummaryService | null {
   return createSummaryService(records, providers, config.summary);
 }
 
-createApp(records, createSummaries()).listen(config.port, () => {
+createApp(records, createSummaries(), () => fhir.ping()).listen(config.port, () => {
   console.log(`API listening on :${config.port}, FHIR at ${config.fhirBaseUrl}`);
 });

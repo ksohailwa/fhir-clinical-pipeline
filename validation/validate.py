@@ -112,7 +112,9 @@ def run_validator(target: Target) -> Path:
         command += ["-ig", guide]
     command += ["-profile", target.profile, "-output", str(output)]
     print(f"Validating {len(files)} {target.resource_type} files against {target.profile}")
-    completed = subprocess.run(command, capture_output=True, text=True, encoding="utf-8")
+    completed = subprocess.run(
+        command, check=False, capture_output=True, text=True, encoding="utf-8"
+    )
     if not output.exists():
         sys.stderr.write(completed.stdout[-4000:] + completed.stderr[-4000:])
         raise SystemExit(f"Validator produced no output for {target.resource_type}")
@@ -167,9 +169,7 @@ def render_report(results: list[TargetResult], label: str) -> str:
             "| Severity | Count | Location | Message id | Example |",
             "|---|---:|---|---|---|",
         ]
-        ordered = sorted(
-            grouped.items(), key=lambda item: (SEVERITIES.index(item[0][0]), -item[1])
-        )
+        ordered = sorted(grouped.items(), key=lambda item: (SEVERITIES.index(item[0][0]), -item[1]))
         for (severity, message_id, location), count in ordered[:TOP_ISSUES_PER_PROFILE]:
             lines.append(
                 f"| {severity} | {count} | `{location}` | `{message_id}` "
@@ -189,9 +189,11 @@ def main() -> int:
     results = [validate(target, args.reuse_output) for target in targets]
     args.report.write_text(render_report(results, args.label), encoding="utf-8")
     for result in results:
+        errors = result.count("error") + result.count("fatal")
         print(
-            f"{result.target.resource_type}: {result.files_with_errors}/{result.files} files with errors, "
-            f"{result.count('error') + result.count('fatal')} errors, {result.count('warning')} warnings"
+            f"{result.target.resource_type}: "
+            f"{result.files_with_errors}/{result.files} files with errors, "
+            f"{errors} errors, {result.count('warning')} warnings"
         )
     print(f"Report written to {args.report}")
     return 0

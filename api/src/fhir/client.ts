@@ -23,6 +23,7 @@ export interface SearchOptions {
 }
 
 export interface FhirClient {
+  ping(): Promise<boolean>;
   read<T extends z.ZodType>(type: string, id: string, schema: T): Promise<z.infer<T> | null>;
   search<T extends z.ZodType>(
     type: string,
@@ -75,6 +76,15 @@ export function createFhirClient({
   }
 
   return {
+    async ping() {
+      try {
+        const { status, body } = await getJson(`${baseUrl}/metadata`);
+        return status === 200 && (body as { resourceType?: unknown })?.resourceType === "CapabilityStatement";
+      } catch {
+        return false;
+      }
+    },
+
     async read(type, id, schema) {
       const { body } = await getJson(`${baseUrl}/${type}/${encodeURIComponent(id)}`);
       return body === null ? null : parse(schema, body, type);

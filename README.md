@@ -1,5 +1,7 @@
 # fhir-clinical-pipeline
 
+[![CI](https://github.com/ksohailwa/fhir-clinical-pipeline/actions/workflows/ci.yml/badge.svg)](https://github.com/ksohailwa/fhir-clinical-pipeline/actions/workflows/ci.yml)
+
 Synthetic patients (Synthea) mapped to FHIR R4, loaded into HAPI FHIR, validated against the German Medical Informatics Initiative (MII) core data set profiles, and shown in a web view with a traceable LLM summary.
 
 > Synthetic data. Demonstration only, not for clinical use.

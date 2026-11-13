@@ -19,6 +19,18 @@ function service(overrides: Partial<RecordService> = {}): RecordService {
   };
 }
 
+describe("GET /api/ready", () => {
+  it("is ready when the FHIR server answers", async () => {
+    const response = await request(createApp(service(), null, async () => true)).get("/api/ready");
+    expect(response.status).toBe(200);
+  });
+
+  it("returns 503 while the FHIR server is down", async () => {
+    const response = await request(createApp(service(), null, async () => false)).get("/api/ready");
+    expect(response.status).toBe(503);
+  });
+});
+
 describe("GET /api/patients", () => {
   it("wraps results in a data envelope", async () => {
     const response = await request(createApp(service())).get("/api/patients?name=Anna");

@@ -7,12 +7,22 @@ import type { RecordService } from "./record/service";
 import { ProviderError } from "./summary/provider";
 import type { SummaryService } from "./summary/service";
 
-export function createApp(records: RecordService, summaries: SummaryService | null = null) {
+export type ReadinessCheck = () => Promise<boolean>;
+
+export function createApp(
+  records: RecordService,
+  summaries: SummaryService | null = null,
+  isReady: ReadinessCheck = async () => true,
+) {
   const app = express();
   app.disable("x-powered-by");
   app.use(express.json());
 
   app.get("/api/health", (_req, res) => sendData(res, { status: "ok" }));
+  app.get("/api/ready", async (_req, res) => {
+    if (await isReady()) return sendData(res, { status: "ready" });
+    sendError(res, 503, "UPSTREAM_UNAVAILABLE", "FHIR server is not ready");
+  });
   app.use("/api/patients", patientsRouter(records));
   app.use("/api/patients", summaryRouter(summaries));
   app.use("/api", (_req, res) => sendError(res, 404, "NOT_FOUND", "No such endpoint"));

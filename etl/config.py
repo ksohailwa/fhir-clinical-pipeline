@@ -27,6 +27,4 @@ SOURCE_CODE_SYSTEMS = {"SNOMED-CT": SNOMED}
 MII_PATIENT_PROFILE = (
     "https://www.medizininformatik-initiative.de/fhir/core/modul-person/StructureDefinition/Patient"
 )
-MII_DIAGNOSE_PROFILE = (
-    "https://www.medizininformatik-initiative.de/fhir/core/modul-diagnose/StructureDefinition/Diagnose"
-)
+MII_DIAGNOSE_PROFILE = "https://www.medizininformatik-initiative.de/fhir/core/modul-diagnose/StructureDefinition/Diagnose"

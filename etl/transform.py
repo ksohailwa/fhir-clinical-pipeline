@@ -237,9 +237,7 @@ def to_medication_request(row: Row) -> Resource:
             ),
             "status": "completed" if _value(row, "STOP") else "active",
             "intent": "order",
-            "medicationCodeableConcept": _codeable(
-                RXNORM, row["CODE"], _description(row)
-            ),
+            "medicationCodeableConcept": _codeable(RXNORM, row["CODE"], _description(row)),
             "subject": _patient_reference(row),
             "authoredOn": row["START"],
             "reasonCode": reason,
