@@ -1,0 +1,56 @@
+{
+  "resourceType": "Observation",
+  "id": "obs-00121ac3cc3f9032",
+  "identifier": [
+    {
+      "type": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+            "code": "OBI"
+          }
+        ]
+      },
+      "system": "urn:fhir-clinical-pipeline:sid:lab-observation",
+      "value": "obs-00121ac3cc3f9032",
+      "assigner": {
+        "display": "fhir-clinical-pipeline ETL (synthetic data)"
+      }
+    }
+  ],
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://loinc.org",
+          "code": "26436-6"
+        },
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "laboratory"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "http://loinc.org",
+        "code": "2571-8",
+        "display": "Triglyceride [Mass/volume] in Serum or Plasma"
+      }
+    ],
+    "text": "Triglyceride [Mass/volume] in Serum or Plasma"
+  },
+  "subject": {
+    "reference": "Patient/ca0c9041-b0b1-5db4-4602-8c535a6961ec"
+  },
+  "effectiveDateTime": "2024-08-06T21:06:50Z",
+  "valueQuantity": {
+    "value": 125.3,
+    "unit": "mg/dL",
+    "system": "http://unitsofmeasure.org",
+    "code": "mg/dL"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "resourceType": "MedicationRequest",
+  "id": "med-0035dc99d5550f46",
+  "status": "completed",
+  "intent": "order",
+  "medicationCodeableConcept": {
+    "coding": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "583214",
+        "display": "Paclitaxel 100 MG Injection"
+      }
+    ],
+    "text": "Paclitaxel 100 MG Injection"
+  },
+  "subject": {
+    "reference": "Patient/e74367bd-7385-97dc-2c7f-251b4cd9fe29"
+  },
+  "authoredOn": "2017-08-30T09:17:10Z",
+  "reasonCode": [
+    {
+      "coding": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "254837009",
+          "display": "Malignant neoplasm of breast (disorder)"
+        }
+      ],
+      "text": "Malignant neoplasm of breast (disorder)"
+    }
+  ]
+}

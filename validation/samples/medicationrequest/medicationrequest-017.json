@@ -1,0 +1,32 @@
+{
+  "resourceType": "MedicationRequest",
+  "id": "med-012eef6a8fd9fd73",
+  "status": "completed",
+  "intent": "order",
+  "medicationCodeableConcept": {
+    "coding": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "205923",
+        "display": "1 ML Epoetin Alfa 4000 UNT/ML Injection [Epogen]"
+      }
+    ],
+    "text": "1 ML Epoetin Alfa 4000 UNT/ML Injection [Epogen]"
+  },
+  "subject": {
+    "reference": "Patient/13bbd9ac-5c42-f173-5411-4e30e7da9e8d"
+  },
+  "authoredOn": "2017-04-11T05:53:24Z",
+  "reasonCode": [
+    {
+      "coding": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "271737000",
+          "display": "Anemia (disorder)"
+        }
+      ],
+      "text": "Anemia (disorder)"
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "resourceType": "Patient",
+  "id": "13bbd9ac-5c42-f173-5411-4e30e7da9e8d",
+  "name": [
+    {
+      "use": "official",
+      "family": "Dooley",
+      "given": [
+        "Zina",
+        "Joyce"
+      ],
+      "prefix": [
+        "Mrs."
+      ]
+    }
+  ],
+  "gender": "female",
+  "birthDate": "1962-08-29",
+  "address": [
+    {
+      "line": [
+        "614 Wisoky Neck Suite 35"
+      ],
+      "city": "Springfield",
+      "state": "Massachusetts",
+      "postalCode": "01104",
+      "country": "US"
+    }
+  ],
+  "meta": {
+    "profile": [
+      "https://www.medizininformatik-initiative.de/fhir/core/modul-person/StructureDefinition/Patient"
+    ]
+  }
+}

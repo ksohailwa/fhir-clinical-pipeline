@@ -16,6 +16,12 @@ CONDITION_CLINICAL = "http://terminology.hl7.org/CodeSystem/condition-clinical"
 CONDITION_VERIFICATION = "http://terminology.hl7.org/CodeSystem/condition-ver-status"
 CONDITION_CATEGORY = "http://terminology.hl7.org/CodeSystem/condition-category"
 
+IDENTIFIER_TYPE = "http://terminology.hl7.org/CodeSystem/v2-0203"
+LOINC_LABORATORY_STUDIES = "26436-6"
+LAB_IDENTIFIER_SYSTEM = "urn:fhir-clinical-pipeline:sid:lab-observation"
+LAB_IDENTIFIER_ASSIGNER = "fhir-clinical-pipeline ETL (synthetic data)"
+LAB_VALUE_CODES_PATH = Path(__file__).resolve().parent / "mappings" / "lab_value_codes.csv"
+
 SOURCE_CODE_SYSTEMS = {"SNOMED-CT": SNOMED}
 
 MII_PATIENT_PROFILE = (

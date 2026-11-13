@@ -1,0 +1,32 @@
+{
+  "resourceType": "Patient",
+  "id": "18b101ed-6582-7193-5a1a-cac8e8de151c",
+  "name": [
+    {
+      "use": "official",
+      "family": "Miller",
+      "given": [
+        "Ivory",
+        "Sam"
+      ]
+    }
+  ],
+  "gender": "male",
+  "birthDate": "2012-09-12",
+  "address": [
+    {
+      "line": [
+        "359 Nitzsche Crossing"
+      ],
+      "city": "Westfield",
+      "state": "Massachusetts",
+      "postalCode": "01086",
+      "country": "US"
+    }
+  ],
+  "meta": {
+    "profile": [
+      "https://www.medizininformatik-initiative.de/fhir/core/modul-person/StructureDefinition/Patient"
+    ]
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "resourceType": "Patient",
+  "id": "20526ee7-17ba-b863-b5f1-776defcde2e6",
+  "name": [
+    {
+      "use": "official",
+      "family": "Feeney",
+      "given": [
+        "Sabra"
+      ],
+      "prefix": [
+        "Mrs."
+      ]
+    }
+  ],
+  "gender": "female",
+  "birthDate": "1972-12-12",
+  "address": [
+    {
+      "line": [
+        "329 Wintheiser Viaduct Apt 34"
+      ],
+      "city": "Bourne",
+      "state": "Massachusetts",
+      "postalCode": "02532",
+      "country": "US"
+    }
+  ],
+  "meta": {
+    "profile": [
+      "https://www.medizininformatik-initiative.de/fhir/core/modul-person/StructureDefinition/Patient"
+    ]
+  }
+}

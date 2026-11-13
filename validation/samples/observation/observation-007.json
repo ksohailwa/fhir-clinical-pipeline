@@ -1,0 +1,56 @@
+{
+  "resourceType": "Observation",
+  "id": "obs-000e2480081e0897",
+  "identifier": [
+    {
+      "type": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+            "code": "OBI"
+          }
+        ]
+      },
+      "system": "urn:fhir-clinical-pipeline:sid:lab-observation",
+      "value": "obs-000e2480081e0897",
+      "assigner": {
+        "display": "fhir-clinical-pipeline ETL (synthetic data)"
+      }
+    }
+  ],
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://loinc.org",
+          "code": "26436-6"
+        },
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "laboratory"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "http://loinc.org",
+        "code": "20565-8",
+        "display": "Carbon dioxide, total [Moles/volume] in Blood"
+      }
+    ],
+    "text": "Carbon dioxide, total [Moles/volume] in Blood"
+  },
+  "subject": {
+    "reference": "Patient/e632520a-2e4f-3419-c0f1-1f7b89f11d9c"
+  },
+  "effectiveDateTime": "2020-06-29T22:12:47Z",
+  "valueQuantity": {
+    "value": 22.3,
+    "unit": "mmol/L",
+    "system": "http://unitsofmeasure.org",
+    "code": "mmol/L"
+  }
+}

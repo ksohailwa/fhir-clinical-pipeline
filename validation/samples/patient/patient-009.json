@@ -1,0 +1,31 @@
+{
+  "resourceType": "Patient",
+  "id": "23c94034-f050-04d5-c5a3-2d42bf3ccc7f",
+  "name": [
+    {
+      "use": "official",
+      "family": "Bergnaum",
+      "given": [
+        "Talitha"
+      ]
+    }
+  ],
+  "gender": "female",
+  "birthDate": "2025-01-26",
+  "address": [
+    {
+      "line": [
+        "800 Schmitt Boulevard Apt 23"
+      ],
+      "city": "Cambridge",
+      "state": "Massachusetts",
+      "postalCode": "02140",
+      "country": "US"
+    }
+  ],
+  "meta": {
+    "profile": [
+      "https://www.medizininformatik-initiative.de/fhir/core/modul-person/StructureDefinition/Patient"
+    ]
+  }
+}

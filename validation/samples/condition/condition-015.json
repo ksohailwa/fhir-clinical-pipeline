@@ -1,0 +1,51 @@
+{
+  "resourceType": "Condition",
+  "id": "cond-011a93b1fc5141be",
+  "clinicalStatus": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+        "code": "resolved"
+      }
+    ]
+  },
+  "verificationStatus": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+        "code": "confirmed"
+      }
+    ]
+  },
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+          "code": "encounter-diagnosis"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "http://snomed.info/sct",
+        "code": "18718003",
+        "display": "Gingival disease (disorder)"
+      }
+    ],
+    "text": "Gingival disease (disorder)"
+  },
+  "subject": {
+    "reference": "Patient/bec25def-e2ce-2fe3-4022-747293bc775e"
+  },
+  "onsetDateTime": "2015-04-21",
+  "abatementDateTime": "2015-04-21",
+  "recordedDate": "2015-04-21",
+  "meta": {
+    "profile": [
+      "https://www.medizininformatik-initiative.de/fhir/core/modul-diagnose/StructureDefinition/Diagnose"
+    ]
+  }
+}

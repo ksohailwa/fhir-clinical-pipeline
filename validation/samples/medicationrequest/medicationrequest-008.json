@@ -1,0 +1,32 @@
+{
+  "resourceType": "MedicationRequest",
+  "id": "med-008a28842967d60e",
+  "status": "completed",
+  "intent": "order",
+  "medicationCodeableConcept": {
+    "coding": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "895996",
+        "display": "120 ACTUAT fluticasone propionate 0.044 MG/ACTUAT Metered Dose Inhaler [Flovent]"
+      }
+    ],
+    "text": "120 ACTUAT fluticasone propionate 0.044 MG/ACTUAT Metered Dose Inhaler [Flovent]"
+  },
+  "subject": {
+    "reference": "Patient/f95a6723-14a5-c4b6-78df-fa97f7ab361c"
+  },
+  "authoredOn": "2025-03-21T23:46:42Z",
+  "reasonCode": [
+    {
+      "coding": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "233678006",
+          "display": "Childhood asthma (disorder)"
+        }
+      ],
+      "text": "Childhood asthma (disorder)"
+    }
+  ]
+}

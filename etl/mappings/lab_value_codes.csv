@@ -1,0 +1,34 @@
+display,system,code
+American Joint Committee on Cancer stage IA (qualifier value),http://snomed.info/sct,1222724007
+American Joint Committee on Cancer stage IIA (qualifier value),http://snomed.info/sct,1222766008
+Blood not detected in urine (finding),http://snomed.info/sct,167297006
+Brown color (qualifier value),http://snomed.info/sct,371254008
+Class IV,http://loinc.org,LA28407-7
+Cloudy urine (finding),http://snomed.info/sct,7766007
+Detected (qualifier value),http://snomed.info/sct,260373001
+Finding of bilirubin in urine (finding),http://snomed.info/sct,275778006
+Finding of presence of bacteria (finding),http://snomed.info/sct,365691004
+Mucus in urine (finding),http://snomed.info/sct,276409005
+Negative (qualifier value),http://snomed.info/sct,260385009
+Nitrite detected in urine (finding),http://snomed.info/sct,314137006
+Nitrite not detected in urine (finding),http://snomed.info/sct,314138001
+Not detected (qualifier value),http://snomed.info/sct,260415000
+Objective evidence of severe cardiovascular disease,http://loinc.org,LA28411-9
+Positive (qualifier value),http://snomed.info/sct,10828004
+Stage 1 (qualifier value),http://snomed.info/sct,258215001
+Stage 2 (qualifier value),http://snomed.info/sct,258219007
+Translucent (qualifier value),http://snomed.info/sct,300828005
+Urine blood test = + (finding),http://snomed.info/sct,167300001
+Urine glucose test = ++ (finding),http://snomed.info/sct,167265006
+Urine ketone test = + (finding),http://snomed.info/sct,167289004
+Urine ketone test = ++ (finding),http://snomed.info/sct,167290008
+Urine ketone test = +++ (finding),http://snomed.info/sct,167291007
+Urine ketone test = trace (finding),http://snomed.info/sct,167288007
+Urine ketones not detected (finding),http://snomed.info/sct,167287002
+Urine leukocyte test one plus (finding),http://snomed.info/sct,394712000
+Urine leukocytes not detected (finding),http://snomed.info/sct,394717006
+Urine microscopy: no casts (finding),http://snomed.info/sct,167336003
+Urine protein test = + (finding),http://snomed.info/sct,167275009
+Urine protein test = ++ (finding),http://snomed.info/sct,167276005
+Urine protein test = +++ (finding),http://snomed.info/sct,167277001
+Urine smell ammoniacal (finding),http://snomed.info/sct,167248002

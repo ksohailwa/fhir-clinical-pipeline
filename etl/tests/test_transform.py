@@ -3,6 +3,7 @@ import pytest
 from config import LOINC, MII_PATIENT_PROFILE, RXNORM, SNOMED, UCUM
 from transform import (
     SkipRow,
+    restore_commas,
     stable_id,
     to_condition,
     to_medication_request,
@@ -136,15 +137,37 @@ class TestObservation:
     def test_maps_numeric_lab_row(self) -> None:
         observation = to_observation(observation_row())
         assert observation["status"] == "final"
-        assert observation["category"][0]["coding"][0]["code"] == "laboratory"
         assert observation["code"]["coding"][0]["system"] == LOINC
         assert observation["valueQuantity"] == {"value": 6.1, "unit": "%", "system": UCUM, "code": "%"}
         assert observation["effectiveDateTime"] == "2024-11-03T06:36:38Z"
 
-    def test_maps_text_lab_row(self) -> None:
-        observation = to_observation(observation_row(VALUE="Cloudy urine", UNITS="", TYPE="text"))
-        assert observation["valueString"] == "Cloudy urine"
+    def test_meets_mii_lab_identifier_and_category(self) -> None:
+        observation = to_observation(observation_row())
+        identifier = observation["identifier"][0]
+        assert identifier["type"]["coding"][0]["code"] == "OBI"
+        assert identifier["value"] == observation["id"]
+        assert identifier["assigner"]["display"]
+        codes = {coding["code"] for coding in observation["category"][0]["coding"]}
+        assert codes == {"26436-6", "laboratory"}
+
+    def test_maps_known_text_value_to_snomed(self) -> None:
+        observation = to_observation(
+            observation_row(VALUE="Cloudy urine (finding)", UNITS="", TYPE="text")
+        )
+        coding = observation["valueCodeableConcept"]["coding"][0]
+        assert coding["system"] == SNOMED
+        assert coding["display"] == "Cloudy urine (finding)"
         assert "valueQuantity" not in observation
+
+    def test_skips_unknown_text_value(self) -> None:
+        with pytest.raises(SkipRow, match="text value without a known code"):
+            to_observation(observation_row(VALUE="less than 1.8", UNITS="", TYPE="text"))
+
+    def test_restores_commas_in_display(self) -> None:
+        observation = to_observation(
+            observation_row(CODE="20565-8", DESCRIPTION="Carbon dioxide  total [Moles/volume] in Blood")
+        )
+        assert observation["code"]["coding"][0]["display"] == "Carbon dioxide, total [Moles/volume] in Blood"
 
     def test_skips_non_laboratory_category(self) -> None:
         with pytest.raises(SkipRow, match="not a laboratory observation"):
@@ -190,6 +213,17 @@ class TestMedicationRequest:
         first = to_medication_request(medication_row(STOP="2024-12-24T01:53:36Z"))
         second = to_medication_request(medication_row(STOP="2025-03-25T01:53:36Z"))
         assert first["id"] != second["id"]
+
+
+@pytest.mark.parametrize(
+    ("raw", "expected"),
+    [
+        ("insulin isophane  human 70 UNT/ML", "insulin isophane, human 70 UNT/ML"),
+        ("Hemoglobin A1c", "Hemoglobin A1c"),
+    ],
+)
+def test_restore_commas(raw: str, expected: str) -> None:
+    assert restore_commas(raw) == expected
 
 
 def test_stable_id_fits_fhir_id_rules() -> None:

@@ -1,0 +1,56 @@
+{
+  "resourceType": "Observation",
+  "id": "obs-003c7a963dc10761",
+  "identifier": [
+    {
+      "type": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+            "code": "OBI"
+          }
+        ]
+      },
+      "system": "urn:fhir-clinical-pipeline:sid:lab-observation",
+      "value": "obs-003c7a963dc10761",
+      "assigner": {
+        "display": "fhir-clinical-pipeline ETL (synthetic data)"
+      }
+    }
+  ],
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://loinc.org",
+          "code": "26436-6"
+        },
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "laboratory"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "http://loinc.org",
+        "code": "787-2",
+        "display": "MCV [Entitic mean volume] in Red Blood Cells by Automated count"
+      }
+    ],
+    "text": "MCV [Entitic mean volume] in Red Blood Cells by Automated count"
+  },
+  "subject": {
+    "reference": "Patient/a296a2ba-b1ad-a3c5-d172-aa3dfdbcdab9"
+  },
+  "effectiveDateTime": "2020-03-23T01:46:59Z",
+  "valueQuantity": {
+    "value": 94.2,
+    "unit": "fL",
+    "system": "http://unitsofmeasure.org",
+    "code": "fL"
+  }
+}

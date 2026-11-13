@@ -1,0 +1,35 @@
+{
+  "resourceType": "Patient",
+  "id": "322ab5c6-5846-ac1e-38cc-48b8cb441e20",
+  "name": [
+    {
+      "use": "official",
+      "family": "Lindgren",
+      "given": [
+        "Lena",
+        "Charlott"
+      ],
+      "prefix": [
+        "Mrs."
+      ]
+    }
+  ],
+  "gender": "female",
+  "birthDate": "1965-04-08",
+  "address": [
+    {
+      "line": [
+        "936 McKenzie Key Suite 0"
+      ],
+      "city": "Stoneham",
+      "state": "Massachusetts",
+      "postalCode": "02180",
+      "country": "US"
+    }
+  ],
+  "meta": {
+    "profile": [
+      "https://www.medizininformatik-initiative.de/fhir/core/modul-person/StructureDefinition/Patient"
+    ]
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "resourceType": "Patient",
+  "id": "2de4dd0d-f665-8a2e-4c6b-997735e14ace",
+  "name": [
+    {
+      "use": "official",
+      "family": "Hammes",
+      "given": [
+        "Aron",
+        "Gary"
+      ],
+      "prefix": [
+        "Mr."
+      ]
+    }
+  ],
+  "gender": "male",
+  "birthDate": "2002-11-30",
+  "address": [
+    {
+      "line": [
+        "793 Mayert Lodge Unit 44"
+      ],
+      "city": "Williamstown",
+      "state": "Massachusetts",
+      "postalCode": "01267",
+      "country": "US"
+    }
+  ],
+  "meta": {
+    "profile": [
+      "https://www.medizininformatik-initiative.de/fhir/core/modul-person/StructureDefinition/Patient"
+    ]
+  }
+}

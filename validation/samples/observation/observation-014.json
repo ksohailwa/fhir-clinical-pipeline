@@ -1,0 +1,56 @@
+{
+  "resourceType": "Observation",
+  "id": "obs-001bd72c4a95d5b4",
+  "identifier": [
+    {
+      "type": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+            "code": "OBI"
+          }
+        ]
+      },
+      "system": "urn:fhir-clinical-pipeline:sid:lab-observation",
+      "value": "obs-001bd72c4a95d5b4",
+      "assigner": {
+        "display": "fhir-clinical-pipeline ETL (synthetic data)"
+      }
+    }
+  ],
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://loinc.org",
+          "code": "26436-6"
+        },
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "laboratory"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "http://loinc.org",
+        "code": "2160-0",
+        "display": "Creatinine [Mass/volume] in Serum or Plasma"
+      }
+    ],
+    "text": "Creatinine [Mass/volume] in Serum or Plasma"
+  },
+  "subject": {
+    "reference": "Patient/5b239628-e609-1d49-9811-576ba0e119d5"
+  },
+  "effectiveDateTime": "2021-02-07T22:22:12Z",
+  "valueQuantity": {
+    "value": 2.1,
+    "unit": "mg/dL",
+    "system": "http://unitsofmeasure.org",
+    "code": "mg/dL"
+  }
+}

@@ -1,6 +1,8 @@
+import csv
 import hashlib
 import math
 import re
+from functools import cache
 from typing import Any
 
 from config import (
@@ -8,7 +10,12 @@ from config import (
     CONDITION_CLINICAL,
     CONDITION_VERIFICATION,
     ID_HASH_LENGTH,
+    IDENTIFIER_TYPE,
+    LAB_IDENTIFIER_ASSIGNER,
+    LAB_IDENTIFIER_SYSTEM,
+    LAB_VALUE_CODES_PATH,
     LOINC,
+    LOINC_LABORATORY_STUDIES,
     MII_DIAGNOSE_PROFILE,
     MII_PATIENT_PROFILE,
     OBSERVATION_CATEGORY,
@@ -56,6 +63,21 @@ def _patient_reference(row: Row) -> dict[str, str]:
 
 def _without_empty(fields: dict[str, Any]) -> dict[str, Any]:
     return {key: value for key, value in fields.items() if value not in ("", None, [], {})}
+
+
+def restore_commas(text: str) -> str:
+    """Synthea's CSV export replaces each comma with a space, so ', ' arrives as two spaces."""
+    return text.replace("  ", ", ")
+
+
+def _description(row: Row, column: str = "DESCRIPTION") -> str:
+    return restore_commas(_value(row, column))
+
+
+@cache
+def lab_value_codes() -> dict[str, tuple[str, str]]:
+    with LAB_VALUE_CODES_PATH.open(encoding="utf-8", newline="") as handle:
+        return {row["display"]: (row["system"], row["code"]) for row in csv.DictReader(handle)}
 
 
 def _codeable(system: str, code: str, display: str) -> dict[str, Any]:
@@ -118,7 +140,7 @@ def to_condition(row: Row) -> Resource:
             "category": [
                 {"coding": [{"system": CONDITION_CATEGORY, "code": "encounter-diagnosis"}]}
             ],
-            "code": _codeable(system, _value(row, "CODE"), _value(row, "DESCRIPTION")),
+            "code": _codeable(system, _value(row, "CODE"), _description(row)),
             "subject": _patient_reference(row),
             "onsetDateTime": row["START"],
             "abatementDateTime": stop,
@@ -132,7 +154,12 @@ def _observation_value(row: Row) -> dict[str, Any]:
     if not raw:
         raise SkipRow("missing VALUE")
     if _value(row, "TYPE") == "text":
-        return {"valueString": raw}
+        text = restore_commas(raw)
+        coded = lab_value_codes().get(text)
+        if coded is None:
+            raise SkipRow("text value without a known code")
+        system, code = coded
+        return {"valueCodeableConcept": _codeable(system, code, text)}
     try:
         number = float(raw)
     except ValueError:
@@ -149,19 +176,35 @@ def to_observation(row: Row) -> Resource:
     if _value(row, "CATEGORY") != LABORATORY:
         raise SkipRow("not a laboratory observation")
     _require(row, "PATIENT", "CODE", "DATE")
+    resource_id = stable_id(
+        "obs",
+        row["PATIENT"],
+        _value(row, "ENCOUNTER"),
+        row["CODE"],
+        row["DATE"],
+        _value(row, "VALUE"),
+    )
     return {
         "resourceType": "Observation",
-        "id": stable_id(
-            "obs",
-            row["PATIENT"],
-            _value(row, "ENCOUNTER"),
-            row["CODE"],
-            row["DATE"],
-            _value(row, "VALUE"),
-        ),
+        "id": resource_id,
+        "identifier": [
+            {
+                "type": {"coding": [{"system": IDENTIFIER_TYPE, "code": "OBI"}]},
+                "system": LAB_IDENTIFIER_SYSTEM,
+                "value": resource_id,
+                "assigner": {"display": LAB_IDENTIFIER_ASSIGNER},
+            }
+        ],
         "status": "final",
-        "category": [{"coding": [{"system": OBSERVATION_CATEGORY, "code": LABORATORY}]}],
-        "code": _codeable(LOINC, row["CODE"], _value(row, "DESCRIPTION")),
+        "category": [
+            {
+                "coding": [
+                    {"system": LOINC, "code": LOINC_LABORATORY_STUDIES},
+                    {"system": OBSERVATION_CATEGORY, "code": LABORATORY},
+                ]
+            }
+        ],
+        "code": _codeable(LOINC, row["CODE"], _description(row)),
         "subject": _patient_reference(row),
         "effectiveDateTime": row["DATE"],
         **_observation_value(row),
@@ -175,7 +218,7 @@ def to_medication_request(row: Row) -> Resource:
             _codeable(
                 SOURCE_CODE_SYSTEMS["SNOMED-CT"],
                 _value(row, "REASONCODE"),
-                _value(row, "REASONDESCRIPTION"),
+                _description(row, "REASONDESCRIPTION"),
             )
         ]
         if _value(row, "REASONCODE")
@@ -195,7 +238,7 @@ def to_medication_request(row: Row) -> Resource:
             "status": "completed" if _value(row, "STOP") else "active",
             "intent": "order",
             "medicationCodeableConcept": _codeable(
-                RXNORM, row["CODE"], _value(row, "DESCRIPTION")
+                RXNORM, row["CODE"], _description(row)
             ),
             "subject": _patient_reference(row),
             "authoredOn": row["START"],

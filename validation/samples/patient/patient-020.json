@@ -1,0 +1,35 @@
+{
+  "resourceType": "Patient",
+  "id": "46ee9d82-b52c-856d-069b-5064ff052225",
+  "name": [
+    {
+      "use": "official",
+      "family": "Grady",
+      "given": [
+        "Shalanda",
+        "Kelsie"
+      ],
+      "prefix": [
+        "Mrs."
+      ]
+    }
+  ],
+  "gender": "female",
+  "birthDate": "1996-07-30",
+  "address": [
+    {
+      "line": [
+        "925 Brown Annex"
+      ],
+      "city": "Lowell",
+      "state": "Massachusetts",
+      "postalCode": "01854",
+      "country": "US"
+    }
+  ],
+  "meta": {
+    "profile": [
+      "https://www.medizininformatik-initiative.de/fhir/core/modul-person/StructureDefinition/Patient"
+    ]
+  }
+}

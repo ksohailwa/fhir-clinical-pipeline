@@ -1,0 +1,32 @@
+{
+  "resourceType": "Patient",
+  "id": "2d68ad16-268a-478c-1f84-d0f1976e1a46",
+  "name": [
+    {
+      "use": "official",
+      "family": "Braun",
+      "given": [
+        "Mauro",
+        "Isaias"
+      ]
+    }
+  ],
+  "gender": "male",
+  "birthDate": "2020-04-03",
+  "address": [
+    {
+      "line": [
+        "686 Hilpert Annex"
+      ],
+      "city": "Quincy",
+      "state": "Massachusetts",
+      "postalCode": "02186",
+      "country": "US"
+    }
+  ],
+  "meta": {
+    "profile": [
+      "https://www.medizininformatik-initiative.de/fhir/core/modul-person/StructureDefinition/Patient"
+    ]
+  }
+}

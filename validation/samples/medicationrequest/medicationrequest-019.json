@@ -1,0 +1,32 @@
+{
+  "resourceType": "MedicationRequest",
+  "id": "med-014e6386cfae922a",
+  "status": "completed",
+  "intent": "order",
+  "medicationCodeableConcept": {
+    "coding": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "314076",
+        "display": "lisinopril 10 MG Oral Tablet"
+      }
+    ],
+    "text": "lisinopril 10 MG Oral Tablet"
+  },
+  "subject": {
+    "reference": "Patient/4760e5e7-fa82-b084-95cb-bb4564d42496"
+  },
+  "authoredOn": "2024-12-23T14:08:59Z",
+  "reasonCode": [
+    {
+      "coding": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "59621000",
+          "display": "Essential hypertension (disorder)"
+        }
+      ],
+      "text": "Essential hypertension (disorder)"
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "resourceType": "Patient",
+  "id": "46976cf7-b0bf-be20-39a5-9f425a52886d",
+  "name": [
+    {
+      "use": "official",
+      "family": "Zieme",
+      "given": [
+        "Lindsay",
+        "Deja"
+      ],
+      "prefix": [
+        "Ms."
+      ]
+    }
+  ],
+  "gender": "female",
+  "birthDate": "2007-10-26",
+  "address": [
+    {
+      "line": [
+        "794 Dicki Neck Unit 4"
+      ],
+      "city": "Worcester",
+      "state": "Massachusetts",
+      "postalCode": "01607",
+      "country": "US"
+    }
+  ],
+  "meta": {
+    "profile": [
+      "https://www.medizininformatik-initiative.de/fhir/core/modul-person/StructureDefinition/Patient"
+    ]
+  }
+}

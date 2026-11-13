@@ -1,0 +1,20 @@
+{
+  "resourceType": "MedicationRequest",
+  "id": "med-00c26f0b0b901893",
+  "status": "completed",
+  "intent": "order",
+  "medicationCodeableConcept": {
+    "coding": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "749762",
+        "display": "{7 (ethinyl estradiol 0.01 MG Oral Tablet) / 84 (ethinyl estradiol 0.03 MG / levonorgestrel 0.15 MG Oral Tablet) } Pack [Seasonique]"
+      }
+    ],
+    "text": "{7 (ethinyl estradiol 0.01 MG Oral Tablet) / 84 (ethinyl estradiol 0.03 MG / levonorgestrel 0.15 MG Oral Tablet) } Pack [Seasonique]"
+  },
+  "subject": {
+    "reference": "Patient/7bdd30f5-7598-e44a-c32c-f928becb9d5e"
+  },
+  "authoredOn": "2023-09-21T13:48:41Z"
+}

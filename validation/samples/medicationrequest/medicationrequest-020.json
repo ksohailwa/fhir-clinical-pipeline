@@ -1,0 +1,20 @@
+{
+  "resourceType": "MedicationRequest",
+  "id": "med-0167fea5b7798672",
+  "status": "completed",
+  "intent": "order",
+  "medicationCodeableConcept": {
+    "coding": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "245134",
+        "display": "72 HR Fentanyl 0.025 MG/HR Transdermal System"
+      }
+    ],
+    "text": "72 HR Fentanyl 0.025 MG/HR Transdermal System"
+  },
+  "subject": {
+    "reference": "Patient/13bbd9ac-5c42-f173-5411-4e30e7da9e8d"
+  },
+  "authoredOn": "2020-05-20T08:47:24Z"
+}

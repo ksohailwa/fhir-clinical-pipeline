@@ -1,0 +1,20 @@
+{
+  "resourceType": "MedicationRequest",
+  "id": "med-00e4d03582ddb913",
+  "status": "completed",
+  "intent": "order",
+  "medicationCodeableConcept": {
+    "coding": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "856987",
+        "display": "Acetaminophen 300 MG / Hydrocodone Bitartrate 5 MG Oral Tablet"
+      }
+    ],
+    "text": "Acetaminophen 300 MG / Hydrocodone Bitartrate 5 MG Oral Tablet"
+  },
+  "subject": {
+    "reference": "Patient/6fbddf55-7096-b883-7cd3-260f27953080"
+  },
+  "authoredOn": "2018-03-13T19:53:29Z"
+}

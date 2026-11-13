@@ -1,0 +1,32 @@
+{
+  "resourceType": "MedicationRequest",
+  "id": "med-013cfceeede7e34b",
+  "status": "completed",
+  "intent": "order",
+  "medicationCodeableConcept": {
+    "coding": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "2123111",
+        "display": "NDA020503 200 ACTUAT Albuterol 0.09 MG/ACTUAT Metered Dose Inhaler"
+      }
+    ],
+    "text": "NDA020503 200 ACTUAT Albuterol 0.09 MG/ACTUAT Metered Dose Inhaler"
+  },
+  "subject": {
+    "reference": "Patient/7f344203-4195-1640-e6a6-138929498536"
+  },
+  "authoredOn": "2021-01-23T23:16:52Z",
+  "reasonCode": [
+    {
+      "coding": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "389087006",
+          "display": "Hypoxemia (disorder)"
+        }
+      ],
+      "text": "Hypoxemia (disorder)"
+    }
+  ]
+}

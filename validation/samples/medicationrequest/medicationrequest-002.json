@@ -1,0 +1,20 @@
+{
+  "resourceType": "MedicationRequest",
+  "id": "med-001b9f42f6158eff",
+  "status": "completed",
+  "intent": "order",
+  "medicationCodeableConcept": {
+    "coding": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "993770",
+        "display": "Acetaminophen 300 MG / Codeine Phosphate 15 MG Oral Tablet"
+      }
+    ],
+    "text": "Acetaminophen 300 MG / Codeine Phosphate 15 MG Oral Tablet"
+  },
+  "subject": {
+    "reference": "Patient/f95a6723-14a5-c4b6-78df-fa97f7ab361c"
+  },
+  "authoredOn": "2022-03-04T23:46:42Z"
+}

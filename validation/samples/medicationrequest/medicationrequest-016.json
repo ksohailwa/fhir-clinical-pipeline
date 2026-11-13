@@ -1,0 +1,32 @@
+{
+  "resourceType": "MedicationRequest",
+  "id": "med-00f976138f3f0f80",
+  "status": "completed",
+  "intent": "order",
+  "medicationCodeableConcept": {
+    "coding": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "245314",
+        "display": "albuterol 5 MG/ML Inhalation Solution"
+      }
+    ],
+    "text": "albuterol 5 MG/ML Inhalation Solution"
+  },
+  "subject": {
+    "reference": "Patient/ba419d35-0dfe-8af7-347c-eebf02485a56"
+  },
+  "authoredOn": "2024-07-12T13:45:01Z",
+  "reasonCode": [
+    {
+      "coding": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "87433001",
+          "display": "Pulmonary emphysema (disorder)"
+        }
+      ],
+      "text": "Pulmonary emphysema (disorder)"
+    }
+  ]
+}

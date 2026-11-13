@@ -1,0 +1,51 @@
+{
+  "resourceType": "Condition",
+  "id": "cond-00c300628fc2cd82",
+  "clinicalStatus": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+        "code": "resolved"
+      }
+    ]
+  },
+  "verificationStatus": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+        "code": "confirmed"
+      }
+    ]
+  },
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+          "code": "encounter-diagnosis"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "http://snomed.info/sct",
+        "code": "73595000",
+        "display": "Stress (finding)"
+      }
+    ],
+    "text": "Stress (finding)"
+  },
+  "subject": {
+    "reference": "Patient/f9dd6522-9d7a-93cd-c9c9-4fe118627441"
+  },
+  "onsetDateTime": "2024-04-16",
+  "abatementDateTime": "2025-04-22",
+  "recordedDate": "2024-04-16",
+  "meta": {
+    "profile": [
+      "https://www.medizininformatik-initiative.de/fhir/core/modul-diagnose/StructureDefinition/Diagnose"
+    ]
+  }
+}

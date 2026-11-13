@@ -1,0 +1,31 @@
+{
+  "resourceType": "Patient",
+  "id": "09570ca0-77fa-de46-54b5-14ac2040a62e",
+  "name": [
+    {
+      "use": "official",
+      "family": "Collins",
+      "given": [
+        "Kizzie"
+      ]
+    }
+  ],
+  "gender": "female",
+  "birthDate": "2017-07-05",
+  "address": [
+    {
+      "line": [
+        "1060 Lesch Lane Unit 35"
+      ],
+      "city": "Tewksbury",
+      "state": "Massachusetts",
+      "postalCode": "00000",
+      "country": "US"
+    }
+  ],
+  "meta": {
+    "profile": [
+      "https://www.medizininformatik-initiative.de/fhir/core/modul-person/StructureDefinition/Patient"
+    ]
+  }
+}

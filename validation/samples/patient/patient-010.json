@@ -1,0 +1,35 @@
+{
+  "resourceType": "Patient",
+  "id": "23e1cc81-a309-632e-cb7a-24611fa5edbf",
+  "name": [
+    {
+      "use": "official",
+      "family": "Botsford",
+      "given": [
+        "Robert"
+      ],
+      "prefix": [
+        "Mr."
+      ]
+    }
+  ],
+  "gender": "male",
+  "birthDate": "1943-10-30",
+  "deceasedDateTime": "2024-02-23",
+  "address": [
+    {
+      "line": [
+        "886 Rice Row"
+      ],
+      "city": "Stoneham",
+      "state": "Massachusetts",
+      "postalCode": "02180",
+      "country": "US"
+    }
+  ],
+  "meta": {
+    "profile": [
+      "https://www.medizininformatik-initiative.de/fhir/core/modul-person/StructureDefinition/Patient"
+    ]
+  }
+}

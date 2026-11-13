@@ -1,0 +1,20 @@
+{
+  "resourceType": "MedicationRequest",
+  "id": "med-0067f37da1fc10c5",
+  "status": "completed",
+  "intent": "order",
+  "medicationCodeableConcept": {
+    "coding": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1000126",
+        "display": "1 ML medroxyPROGESTERone acetate 150 MG/ML Injection"
+      }
+    ],
+    "text": "1 ML medroxyPROGESTERone acetate 150 MG/ML Injection"
+  },
+  "subject": {
+    "reference": "Patient/76a1559f-a83a-59b9-ed07-4efd4a0f1b39"
+  },
+  "authoredOn": "2022-01-23T20:58:05Z"
+}

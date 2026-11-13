@@ -1,0 +1,32 @@
+{
+  "resourceType": "Patient",
+  "id": "06eb6dda-a918-928f-76cf-6bf370cf2014",
+  "name": [
+    {
+      "use": "official",
+      "family": "Ritchie",
+      "given": [
+        "Kenneth",
+        "Vincent"
+      ]
+    }
+  ],
+  "gender": "male",
+  "birthDate": "2018-03-11",
+  "address": [
+    {
+      "line": [
+        "343 Wisozk Hollow"
+      ],
+      "city": "Saugus",
+      "state": "Massachusetts",
+      "postalCode": "01906",
+      "country": "US"
+    }
+  ],
+  "meta": {
+    "profile": [
+      "https://www.medizininformatik-initiative.de/fhir/core/modul-person/StructureDefinition/Patient"
+    ]
+  }
+}

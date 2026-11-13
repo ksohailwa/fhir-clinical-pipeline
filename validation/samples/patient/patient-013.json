@@ -1,0 +1,35 @@
+{
+  "resourceType": "Patient",
+  "id": "2c167999-289d-95fa-5c27-7d8b8d35348c",
+  "name": [
+    {
+      "use": "official",
+      "family": "Nader",
+      "given": [
+        "Eliseo",
+        "Laverne"
+      ],
+      "prefix": [
+        "Mr."
+      ]
+    }
+  ],
+  "gender": "male",
+  "birthDate": "1974-02-23",
+  "address": [
+    {
+      "line": [
+        "257 Wiza Forge Suite 31"
+      ],
+      "city": "Revere",
+      "state": "Massachusetts",
+      "postalCode": "02151",
+      "country": "US"
+    }
+  ],
+  "meta": {
+    "profile": [
+      "https://www.medizininformatik-initiative.de/fhir/core/modul-person/StructureDefinition/Patient"
+    ]
+  }
+}

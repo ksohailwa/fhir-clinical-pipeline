@@ -1,0 +1,35 @@
+{
+  "resourceType": "Patient",
+  "id": "3236b1f8-2bc1-3e38-c539-a29407c6a206",
+  "name": [
+    {
+      "use": "official",
+      "family": "Barrows",
+      "given": [
+        "Krysta",
+        "Leah"
+      ],
+      "prefix": [
+        "Ms."
+      ]
+    }
+  ],
+  "gender": "female",
+  "birthDate": "2004-11-19",
+  "address": [
+    {
+      "line": [
+        "996 Ankunding Approach Apt 1"
+      ],
+      "city": "Boston",
+      "state": "Massachusetts",
+      "postalCode": "02136",
+      "country": "US"
+    }
+  ],
+  "meta": {
+    "profile": [
+      "https://www.medizininformatik-initiative.de/fhir/core/modul-person/StructureDefinition/Patient"
+    ]
+  }
+}

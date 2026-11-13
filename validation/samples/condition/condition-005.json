@@ -1,0 +1,51 @@
+{
+  "resourceType": "Condition",
+  "id": "cond-00a0a63173811b0d",
+  "clinicalStatus": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+        "code": "resolved"
+      }
+    ]
+  },
+  "verificationStatus": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+        "code": "confirmed"
+      }
+    ]
+  },
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+          "code": "encounter-diagnosis"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "http://snomed.info/sct",
+        "code": "65966004",
+        "display": "Fracture of forearm (disorder)"
+      }
+    ],
+    "text": "Fracture of forearm (disorder)"
+  },
+  "subject": {
+    "reference": "Patient/5c39a9da-6fb0-3cbb-0181-add875529d46"
+  },
+  "onsetDateTime": "2016-12-04",
+  "abatementDateTime": "2017-01-11",
+  "recordedDate": "2016-12-04",
+  "meta": {
+    "profile": [
+      "https://www.medizininformatik-initiative.de/fhir/core/modul-diagnose/StructureDefinition/Diagnose"
+    ]
+  }
+}

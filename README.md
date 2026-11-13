@@ -53,4 +53,21 @@ Mapping decisions:
 - Resource ids are deterministic: the Synthea UUID for patients and a hash of the identifying columns for everything else, so a second run updates resources instead of duplicating them.
 - Synthea's numeric name suffixes are stripped (`Lindsay928` becomes `Lindsay`).
 - Only `laboratory` observations are loaded. Numeric values become `valueQuantity` with UCUM units, and text values become `valueString`.
-- Rows are skipped, with a counted reason, when a required column is empty, the code system is unknown, a numeric lab value has no unit, the patient is unknown, or the row is an exact duplicate.
+- Rows are skipped, with a counted reason, when a required column is empty, the code system is unknown, a numeric lab value has no unit, a text lab value has no known code, the patient is unknown, or the row is an exact duplicate.
+- Synthea's CSV export turns commas into spaces; descriptions are restored (`Carbon dioxide  total` becomes `Carbon dioxide, total`).
+- Text lab results are coded as SNOMED CT using codes recovered from Synthea's FHIR export (`etl/mappings/lab_value_codes.csv`).
+
+Loaded: 113 patients, 3,477 conditions, 20,077 laboratory observations, 3,229 medication requests.
+
+## Validation against German MII profiles
+
+Samples of 20 resources per type are validated with the HL7 FHIR validator against the MII core data set profiles. Details and the classification of every finding are in [validation/README.md](validation/README.md).
+
+| Resource | MII profile | Errors before | Errors after |
+|---|---|---:|---:|
+| Patient | Patient | 0 | 0 |
+| Condition | Diagnose | 0 | 0 |
+| Observation | ObservationLab | 84 | 0 |
+| MedicationRequest | MedicationRequest | 1 | 0 |
+
+Passing is not the same as being usable in a German data integration centre: diagnoses carry SNOMED CT only (no ICD-10-GM) and medications RxNorm only (no ATC or PZN). Both are allowed by the profiles and documented as limitations.

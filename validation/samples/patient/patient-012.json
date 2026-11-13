@@ -1,0 +1,34 @@
+{
+  "resourceType": "Patient",
+  "id": "2bbd76b7-e9a4-0597-7752-c228b9ffe6c1",
+  "name": [
+    {
+      "use": "official",
+      "family": "Kozey",
+      "given": [
+        "Lois"
+      ],
+      "prefix": [
+        "Mrs."
+      ]
+    }
+  ],
+  "gender": "female",
+  "birthDate": "1963-11-13",
+  "address": [
+    {
+      "line": [
+        "650 Olson Station"
+      ],
+      "city": "Winthrop",
+      "state": "Massachusetts",
+      "postalCode": "02128",
+      "country": "US"
+    }
+  ],
+  "meta": {
+    "profile": [
+      "https://www.medizininformatik-initiative.de/fhir/core/modul-person/StructureDefinition/Patient"
+    ]
+  }
+}

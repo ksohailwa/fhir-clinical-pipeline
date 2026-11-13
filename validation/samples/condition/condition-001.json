@@ -1,0 +1,50 @@
+{
+  "resourceType": "Condition",
+  "id": "cond-000a59aeb4765b74",
+  "clinicalStatus": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+        "code": "active"
+      }
+    ]
+  },
+  "verificationStatus": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+        "code": "confirmed"
+      }
+    ]
+  },
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+          "code": "encounter-diagnosis"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "http://snomed.info/sct",
+        "code": "162864005",
+        "display": "Body mass index 30+ - obesity (finding)"
+      }
+    ],
+    "text": "Body mass index 30+ - obesity (finding)"
+  },
+  "subject": {
+    "reference": "Patient/715724a5-2018-a4ef-8f62-42ec13f9c91d"
+  },
+  "onsetDateTime": "1973-10-23",
+  "recordedDate": "1973-10-23",
+  "meta": {
+    "profile": [
+      "https://www.medizininformatik-initiative.de/fhir/core/modul-diagnose/StructureDefinition/Diagnose"
+    ]
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "resourceType": "MedicationRequest",
+  "id": "med-007c08ecef16405b",
+  "status": "completed",
+  "intent": "order",
+  "medicationCodeableConcept": {
+    "coding": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "206905",
+        "display": "Ibuprofen 400 MG Oral Tablet [Ibu]"
+      }
+    ],
+    "text": "Ibuprofen 400 MG Oral Tablet [Ibu]"
+  },
+  "subject": {
+    "reference": "Patient/52c9afbe-14c2-1ce3-938e-446519a54784"
+  },
+  "authoredOn": "2016-03-01T00:46:22Z"
+}

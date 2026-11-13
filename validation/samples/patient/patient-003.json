@@ -1,0 +1,35 @@
+{
+  "resourceType": "Patient",
+  "id": "080b069b-5108-46b6-ecef-6aacd3b9ef3f",
+  "name": [
+    {
+      "use": "official",
+      "family": "Aufderhar",
+      "given": [
+        "Chester",
+        "Richie"
+      ],
+      "prefix": [
+        "Mr."
+      ]
+    }
+  ],
+  "gender": "male",
+  "birthDate": "1967-01-03",
+  "address": [
+    {
+      "line": [
+        "314 Robel Quay"
+      ],
+      "city": "Wareham",
+      "state": "Massachusetts",
+      "postalCode": "00000",
+      "country": "US"
+    }
+  ],
+  "meta": {
+    "profile": [
+      "https://www.medizininformatik-initiative.de/fhir/core/modul-person/StructureDefinition/Patient"
+    ]
+  }
+}
