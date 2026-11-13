@@ -1,0 +1,7 @@
+data/
+.env
+node_modules/
+__pycache__/
+.venv/
+.pytest_cache/
+validation/validator_cli.jar
