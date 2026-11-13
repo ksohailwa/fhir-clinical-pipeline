@@ -18,11 +18,18 @@ Synthetic patients (Synthea) mapped to FHIR R4, loaded into HAPI FHIR, validated
 
 ## Generate the data
 
-Requires Java 17.
+Requires Java 17. Download `synthea-with-dependencies.jar` from the [Synthea releases page](https://github.com/synthetichealth/synthea/releases) into `data/`.
 
 ```bash
 cd data
 java -jar synthea-with-dependencies.jar -p 100 -s 42 --exporter.csv.export=true --exporter.fhir.export=false
 ```
 
-Download `synthea-with-dependencies.jar` from the [Synthea releases page](https://github.com/synthetichealth/synthea/releases) into `data/`.
+## Run the FHIR server
+
+```bash
+docker compose up -d
+curl http://localhost:8080/fhir/metadata
+```
+
+HAPI FHIR 8.12 (R4) on PostgreSQL 16. The first boot takes about 75 seconds.
