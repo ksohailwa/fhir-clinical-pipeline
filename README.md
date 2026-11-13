@@ -33,3 +33,24 @@ curl http://localhost:8080/fhir/metadata
 ```
 
 HAPI FHIR 8.12 (R4) on PostgreSQL 16. The first boot takes about 75 seconds.
+
+## Load the data (ETL)
+
+```bash
+cd etl
+python -m venv .venv
+.venv\Scripts\activate            # macOS/Linux: source .venv/bin/activate
+pip install -r requirements.txt
+python run.py --dry-run           # transform only, print counts and skip reasons
+python run.py                     # load into FHIR_BASE_URL (default http://localhost:8080/fhir)
+python -m pytest
+```
+
+`extract.py` reads the CSVs, `transform.py` holds one pure function per resource type, `load.py` sends transaction bundles of 200 `PUT` requests, and `run.py` loads patients first, then conditions, laboratory observations and medication requests.
+
+Mapping decisions:
+
+- Resource ids are deterministic: the Synthea UUID for patients and a hash of the identifying columns for everything else, so a second run updates resources instead of duplicating them.
+- Synthea's numeric name suffixes are stripped (`Lindsay928` becomes `Lindsay`).
+- Only `laboratory` observations are loaded. Numeric values become `valueQuantity` with UCUM units, and text values become `valueString`.
+- Rows are skipped, with a counted reason, when a required column is empty, the code system is unknown, a numeric lab value has no unit, the patient is unknown, or the row is an exact duplicate.
