@@ -16,6 +16,9 @@ services:
 
   api:
     build: ./api
+    env_file:
+      - path: .env
+        required: false
     environment:
       FHIR_BASE_URL: http://fhir:8080/fhir
     ports:

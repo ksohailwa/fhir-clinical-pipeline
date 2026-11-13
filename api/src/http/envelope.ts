@@ -5,6 +5,8 @@ export type ErrorCode =
   | "NOT_FOUND"
   | "UPSTREAM_ERROR"
   | "UPSTREAM_UNAVAILABLE"
+  | "LLM_NOT_CONFIGURED"
+  | "LLM_FAILED"
   | "INTERNAL_ERROR";
 
 export function sendData<T>(res: Response, data: T, status = 200): void {

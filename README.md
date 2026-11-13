@@ -43,6 +43,19 @@ The API exposes `GET /api/patients?name=` (first 20 matches), `GET /api/patients
 
 For development, run `npm run dev` in `api/` and `web/`; Vite proxies `/api` to port 3001.
 
+## LLM summary with traceable sources
+
+`POST /api/patients/:id/summary` summarises a record with Claude. Copy `.env.example` to `.env` and set `ANTHROPIC_API_KEY`; without it the endpoint returns 503 and the rest of the system works.
+
+1. The record becomes a numbered fact list, one line per resource, each tagged with its FHIR id (newest result per lab test, newest occurrence per condition and medication, capped per type).
+2. Claude (`claude-opus-5-5`, fallback `claude-sonnet-5-5`) answers through structured outputs: at most five sentences, each with the ids of the facts it uses. The prompt forbids outside knowledge, diagnosis and treatment advice. Refusals are rerouted server-side (`fallbacks: "default"`); errors and timeouts fall through to the next model.
+3. The API checks every sentence: cited ids must exist in the fact list, and every sentence needs at least one. If more than one sentence fails, the answer is rejected and requested once more; a second failure is returned with the failing sentences flagged.
+4. The page labels the box "AI-generated summary of synthetic data" and renders each citation as a link that scrolls to the cited row.
+
+Each call logs provider, model, latency, fact count, flagged sentences and fallback failures as one JSON line.
+
+The check does not make the summary correct. It guarantees that every sentence points at data the reader can inspect.
+
 ## Load the data (ETL)
 
 ```bash

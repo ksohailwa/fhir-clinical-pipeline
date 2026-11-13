@@ -8,7 +8,7 @@ const SearchQuerySchema = z.object({
   name: z.string().trim().min(1, "name is required").max(config.maxNameQueryLength),
 });
 
-const PatientParamsSchema = z.object({
+export const PatientParamsSchema = z.object({
   id: z.string().regex(/^[A-Za-z0-9\-.]{1,64}$/, "id is not a valid FHIR id"),
 });
 

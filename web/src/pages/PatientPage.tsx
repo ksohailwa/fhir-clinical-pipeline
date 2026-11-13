@@ -4,6 +4,7 @@ import { getPatientRecord } from "../api/client";
 import type { PatientRecord } from "../api/types";
 import { cellClass, headCellClass, rowClass, Section, tableClass } from "../components/Section";
 import { LabResults } from "../features/labs/LabResults";
+import { SummaryPanel } from "../features/summary/SummaryPanel";
 import { ageInYears, capitalize, EMPTY, formatDate } from "../lib/format";
 
 function PatientHeader({ patient }: Pick<PatientRecord, "patient">) {
@@ -132,6 +133,7 @@ export function PatientPage() {
         ← New search
       </Link>
       <PatientHeader patient={patient} />
+      <SummaryPanel key={patient.id} patientId={patient.id} />
       <nav className="flex flex-wrap gap-2 text-sm">
         {sections.map((section) => (
           <a

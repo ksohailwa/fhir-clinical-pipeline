@@ -32,6 +32,26 @@ export interface MedicationItem {
   status: string | null;
 }
 
+export type SentenceFlag = "unknown_citation" | "no_citation";
+
+export interface SummarySentence {
+  text: string;
+  citations: string[];
+  unknownCitations: string[];
+  flags: SentenceFlag[];
+}
+
+export interface PatientSummaryResult {
+  sentences: SummarySentence[];
+  flaggedCount: number;
+  accepted: boolean;
+  attempts: number;
+  provider: { name: string; model: string };
+  factCount: number;
+  omitted: { conditions: number; labs: number; medications: number };
+  latencyMs: number;
+}
+
 export interface PatientRecord {
   patient: PatientSummary;
   conditions: ConditionItem[];
