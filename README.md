@@ -25,14 +25,23 @@ cd data
 java -jar synthea-with-dependencies.jar -p 100 -s 42 --exporter.csv.export=true --exporter.fhir.export=false
 ```
 
-## Run the FHIR server
+## Run the system
 
 ```bash
-docker compose up -d
+docker compose up -d --build
 curl http://localhost:8080/fhir/metadata
 ```
 
-HAPI FHIR 8.12 (R4) on PostgreSQL 16. The first boot takes about 75 seconds.
+| Service | URL | What it is |
+|---|---|---|
+| `web` | http://localhost:3000 | React + TypeScript patient view, served by nginx, proxies `/api` |
+| `api` | http://localhost:3001/api | Express + TypeScript, validates input and FHIR responses with Zod |
+| `fhir` | http://localhost:8080/fhir | HAPI FHIR 8.12 (R4); the first boot takes about 75 seconds |
+| `db` | internal | PostgreSQL 16 |
+
+The API exposes `GET /api/patients?name=` (first 20 matches), `GET /api/patients/:id/record` (patient, conditions, laboratory values newest first, medications; follows FHIR paging) and `GET /api/health`. Responses use `{ "data": ... }` or `{ "error": { "code", "message" } }`.
+
+For development, run `npm run dev` in `api/` and `web/`; Vite proxies `/api` to port 3001.
 
 ## Load the data (ETL)
 
